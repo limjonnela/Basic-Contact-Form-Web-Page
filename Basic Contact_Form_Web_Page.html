@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Basic Contact_form_Web_Page.css">
+  <title>Contact Form</title>
+</head>
+<body>
+
+  <form id="contactForm">
+    <h1>Contact Form</h1>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required placeholder="Your name">
+
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required placeholder="Your email">
+
+    <label for="subjectSelect">Subject:</label>
+    <select id="subjectSelect" name="subject">
+      <option value="ipt2">Integrative Programming Technologies 2</option>
+      <option value="spi">Social and Professional Issues</option>
+      <option value="N2">Networking 2</option>
+      <option value="sia">System Integration and Architecture 1</option>
+      <option value="N2">Principles of Web Design</option>
+      <option value="sia">Client-Server Technologies</option>
+    </select>
+    
+
+    <label for="gender">Gender:</label>
+    
+    <div class="radio-container" onclick="toggleRadioButton('radio1')">
+      <input type="radio" name="group1" id="radio1" class="hidden-radio">
+      <div class="custom-radio"></div>
+      <label for="radio1">Male</label>
+    </div>
+    
+    <div class="radio-container" onclick="toggleRadioButton('radio2')">
+      <input type="radio" name="group1" id="radio2" class="hidden-radio">
+      <div class="custom-radio"></div>
+      <label for="radio2">Female</label>
+    </div>
+    
+    <div class="radio-container" onclick="toggleRadioButton('radio3')">
+      <input type="radio" name="group1" id="radio3" class="hidden-radio">
+      <div class="custom-radio"></div>
+      <label for="radio3">other</label>
+    </div>
+    
+    <script>
+      function toggleRadioButton(id) {
+        const radio = document.getElementById(id);
+        radio.checked = !radio.checked;
+        updateRadioStyles();
+      }
+    
+      function updateRadioStyles() {
+        const radios = document.querySelectorAll('.hidden-radio');
+        radios.forEach(radio => {
+          const container = radio.parentNode;
+          const customRadio = container.querySelector('.custom-radio');
+          customRadio.style.backgroundColor = radio.checked ? '#3498db' : '#ecf0f1';
+        });
+      }
+    </script>
+
+    <label for="interests">Select Your Interests:</label>
+    <div class="checkbox-container" onclick="toggleCheckbox('checkbox1')">
+      <input type="checkbox" id="checkbox1" class="hidden-checkbox">
+      <div class="custom-checkbox"></div>
+      <label for="checkbox1">Coding</label>
+    </div>
+    
+    <div class="checkbox-container" onclick="toggleCheckbox('checkbox2')">
+      <input type="checkbox" id="checkbox2" class="hidden-checkbox">
+      <div class="custom-checkbox"></div>
+      <label for="checkbox2">Design</label>
+    </div>
+    
+    <div class="checkbox-container" onclick="toggleCheckbox('checkbox3')">
+      <input type="checkbox" id="checkbox3" class="hidden-checkbox">
+      <div class="custom-checkbox"></div>
+      <label for="checkbox3">other</label>
+    </div>
+    
+    <script>
+      function toggleCheckbox(id) {
+        const checkbox = document.getElementById(id);
+        checkbox.checked = !checkbox.checked;
+        updateCheckboxStyles();
+      }
+    
+      function updateCheckboxStyles() {
+        const checkboxes = document.querySelectorAll('.hidden-checkbox');
+        checkboxes.forEach(checkbox => {
+          const container = checkbox.parentNode;
+          const customCheckbox = container.querySelector('.custom-checkbox');
+          const label = container.querySelector('label');
+    
+          if (checkbox.checked) {
+            customCheckbox.innerHTML = '✓'; // Checkmark character
+            label.style.color = '#3498db'; // Change label color when checked
+          } else {
+            customCheckbox.innerHTML = '';
+            label.style.color = ''; // Reset label color when not checked
+          }
+        });
+      }
+    </script>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="4" required placeholder="Your message"></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script src="Basic contact_form_web_page.js"></script>
+
+</body>
+</html>
